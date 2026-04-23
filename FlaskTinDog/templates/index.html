@@ -1,171 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TinDog</title>
+{% extends "base.html" %}
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+{% block title %}Home{% endblock %}
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+{% block content %}
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<section id="title">
+  <div class="container-fluid">
 
-  <link rel="stylesheet" href="./static/css/style.css">
-</head>
-<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">tindog</a>
 
-  <section id="title">
-    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">tindog</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Download</a></li>
+        </ul>
+      </div>
+    </nav>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class="big-heading">Meet new and interesting dogs nearby.</h1>
+
+        <button class="btn btn-dark btn-lg download-button">
+          <i class="fa-brands fa-apple"></i> Download
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#footer">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#pricing">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#features">Download</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+        <button class="btn btn-outline-light btn-lg download-button">
+          <i class="fa-brands fa-google-play"></i> Download
+        </button>
+      </div>
 
-      <div class="row">
-
-        <div class="col-lg-6">
-          <h1 class="big-heading">Meet new and interesting dogs nearby.</h1>
-
-          <button type="button" class="btn btn-dark btn-lg download-button">
-            <i class="fa-brands fa-apple"></i> Download
-          </button>
-
-          <button type="button" class="btn btn-outline-light btn-lg download-button">
-            <i class="fa-brands fa-google-play"></i> Download
-          </button>
-        </div>
-
-        <div class="col-lg-6 phone-column">
-          <img class="title-image" src="./static/images/iphone.png" alt="iphone mockup">
-        </div>
-
+      <div class="col-lg-6 phone-column">
+        <img class="title-image" src="{{ url_for('static', filename='images/iphone.png') }}">
       </div>
     </div>
-  </section>
 
-  <section id="features">
-    <div class="row">
+  </div>
+</section>
 
-      <div class="feature-box col-lg-4">
-        <i class="icon fa-solid fa-circle-check fa-4x"></i>
-        <h3>Easy to use.</h3>
-        <p>So easy to use, even your dog could do it.</p>
-      </div>
+<section id="features">
+  <div class="row">
 
-      <div class="feature-box col-lg-4">
-        <i class="icon fa-solid fa-bullseye fa-4x"></i>
-        <h3>Elite Clientele</h3>
-        <p>We have all the dogs, the greatest dogs.</p>
-      </div>
-
-      <div class="feature-box col-lg-4">
-        <i class="icon fa-solid fa-heart fa-4x"></i>
-        <h3>Guaranteed to work.</h3>
-        <p>Find the love of your dog's life or your money back.</p>
-      </div>
-
+    <div class="feature-box col-lg-4">
+      <i class="icon fa-solid fa-circle-check fa-4x"></i>
+      <h3>Easy to use.</h3>
+      <p>So easy to use, even your dog could do it.</p>
     </div>
-  </section>
 
-  <section id="testimonials">
-    <h2>
-      “I no longer have to sniff other dogs for love. I've found the hottest Corgi on TinDog. Woof.”
-    </h2>
-
-    <img class="testimonial-image" src="./static/images/dog-img.jpg" alt="dog profile">
-    <em>Pebbles, New York</em>
-  </section>
-
-  <section id="press">
-    <img class="press-logo" src="./static/images/techcrunch.png" alt="TechCrunch">
-    <img class="press-logo" src="./static/images/tnw.png" alt="TNW">
-    <img class="press-logo" src="./static/images/bizinsider.png" alt="Business Insider">
-  </section>
-
-  <section id="pricing">
-
-    <h2>A Plan for Every Dog's Needs</h2>
-    <p>Simple and affordable price plans for you and your dog.</p>
-
-    <div class="row">
-
-      <div class="pricing-column col-lg-4 col-md-6">
-        <div class="card h-100">
-          <div class="card-header">
-            <h3>Chihuahua</h3>
-          </div>
-          <div class="card-body">
-            <h2>$0/mo</h2>
-            <p>5 Matches Per Day</p>
-            <p>10 Messages Per Day</p>
-            <p>Unlimited App Usage</p>
-            <button class="btn btn-outline-dark w-100 btn-lg">Sign Up</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="pricing-column col-lg-4 col-md-6">
-        <div class="card h-100">
-          <div class="card-header">
-            <h3>Labrador</h3>
-          </div>
-          <div class="card-body">
-            <h2>$15/mo</h2>
-            <p>Unlimited Matches</p>
-            <p>Unlimited Messages</p>
-            <p>Unlimited App Usage</p>
-            <button class="btn btn-dark w-100 btn-lg">Get Started</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="pricing-column col-lg-4">
-        <div class="card h-100">
-          <div class="card-header bg-dark text-white">
-            <h3>Mastiff</h3>
-          </div>
-          <div class="card-body">
-            <h2>$29/mo</h2>
-            <p>Pirority Listing</p>
-            <p>Unlimited Matches</p>
-            <p>Unlimited Messages</p>
-            <button class="btn btn-dark w-100 btn-lg">Contact Us</button>
-          </div>
-        </div>
-      </div>
-
+    <div class="feature-box col-lg-4">
+      <i class="icon fa-solid fa-bullseye fa-4x"></i>
+      <h3>Elite Clientele</h3>
+      <p>We have all the dogs, the greatest dogs.</p>
     </div>
-  </section>
 
-  <footer id="footer">
-    <i class="social-icon fa-brands fa-twitter"></i>
-    <i class="social-icon fa-brands fa-facebook-f"></i>
-    <i class="social-icon fa-brands fa-instagram"></i>
-    <i class="social-icon fa-solid fa-envelope"></i>
+    <div class="feature-box col-lg-4">
+      <i class="icon fa-solid fa-heart fa-4x"></i>
+      <h3>Guaranteed to work.</h3>
+      <p>Find the love of your dog's life or your money back.</p>
+    </div>
 
-    <p>©  TinDog</p>
-  </footer>
+  </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<section id="testimonials">
+  <h2>
+    “I no longer have to sniff other dogs for love. I've found the hottest Corgi on TinDog. Woof.”
+  </h2>
 
-</body>
-</html>
+  <img class="testimonial-image" src="{{ url_for('static', filename='images/dog-img.jpg') }}">
+  <em>Pebbles, New York</em>
+</section>
+
+<section id="press">
+  <img class="press-logo" src="{{ url_for('static', filename='images/techcrunch.png') }}">
+  <img class="press-logo" src="{{ url_for('static', filename='images/tnw.png') }}">
+  <img class="press-logo" src="{{ url_for('static', filename='images/bizinsider.png') }}">
+</section>
+
+<section id="pricing">
+
+  <h2>A Plan for Every Dog's Needs</h2>
+  <p>Simple and affordable price plans for you and your dog.</p>
+
+  <div class="row">
+
+    <div class="pricing-column col-lg-4 col-md-6">
+      <div class="card h-100">
+        <div class="card-header">
+          <h3>Chihuahua</h3>
+        </div>
+        <div class="card-body">
+          <h2>$0/mo</h2>
+          <p>5 Matches Per Day</p>
+          <p>10 Messages Per Day</p>
+          <p>Unlimited App Usage</p>
+          <button class="btn btn-outline-dark w-100 btn-lg">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-column col-lg-4 col-md-6">
+      <div class="card h-100">
+        <div class="card-header">
+          <h3>Labrador</h3>
+        </div>
+        <div class="card-body">
+          <h2>$15/mo</h2>
+          <p>Unlimited Matches</p>
+          <p>Unlimited Messages</p>
+          <p>Unlimited App Usage</p>
+          <button class="btn btn-dark w-100 btn-lg">Get Started</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-column col-lg-4">
+      <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          <h3>Mastiff</h3>
+        </div>
+        <div class="card-body">
+          <h2>$29/mo</h2>
+          <p>Priority Listing</p>
+          <p>Unlimited Matches</p>
+          <p>Unlimited Messages</p>
+          <button class="btn btn-dark w-100 btn-lg">Contact Us</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer id="footer">
+  <i class="social-icon fa-brands fa-twitter"></i>
+  <i class="social-icon fa-brands fa-facebook-f"></i>
+  <i class="social-icon fa-brands fa-instagram"></i>
+  <i class="social-icon fa-solid fa-envelope"></i>
+
+  <p>© TinDog</p>
+</footer>
+
+{% endblock %}
